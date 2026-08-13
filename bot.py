@@ -30,9 +30,9 @@ def video_request(message):
         message.chat.id,
         "🤖 Qanday mavzuda kulgili video kerak?\n\n"
         "Masalan:\n"
-        "🐱 Mushuklar pasport olyapti\n"
-        "🐶 It maktabga boribdi\n"
-        "😂 Ustoz darsda uxlab qolibdi"
+        "🐶 it pasport orqali kredit olyabdi 💳"
+        "🐔 Tovuq supermarketda kassir bo‘lib ishlayapti 💵"
+        "🐮 Sigir pasport olish uchun navbatda turibdi 🪪"
     )
 
 
