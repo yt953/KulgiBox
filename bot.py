@@ -50,4 +50,14 @@ def back(message):
     start(message)
 
 
+@bot.message_handler(content_types=['video'])
+def get_video_id(message):
+    file_id = message.video.file_id
+
+    bot.send_message(
+        message.chat.id,
+        f"Video ID:\n{file_id}"
+    )
+
+
 bot.infinity_polling()
