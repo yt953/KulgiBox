@@ -11,29 +11,43 @@ bot = telebot.TeleBot(TOKEN)
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
 
-    video_button = types.KeyboardButton("🎬 Menga video top")
+    animals_button = types.KeyboardButton("🐾 Hayvonlar pasporti")
 
-    markup.add(video_button)
+    markup.add(animals_button)
 
     bot.send_message(
         message.chat.id,
         "😂 Salom! KulgiBox'ga xush kelibsiz! 🔥\n\n"
-        "Qanday kulgili video kerakligini yozish uchun "
-        "pastdagi tugmani bosing 👇",
+        "Quyidagi menyudan mavzuni tanlang 👇",
         reply_markup=markup
     )
 
 
-@bot.message_handler(func=lambda message: message.text == "🎬 Menga video top")
-def video_request(message):
+@bot.message_handler(func=lambda message: message.text == "🐾 Hayvonlar pasporti")
+def animals_passport(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+    dog = types.KeyboardButton("🐶 It pasport orqali kredit olyapti 💳")
+    chicken = types.KeyboardButton("🐔 Tovuq supermarketda kassir bo‘lib ishlayapti 💵")
+    cow = types.KeyboardButton("🐮 Sigir pasport olish uchun navbatda turibdi 🪪")
+    back = types.KeyboardButton("🔙 Orqaga")
+
+    markup.add(dog)
+    markup.add(chicken)
+    markup.add(cow)
+    markup.add(back)
+
     bot.send_message(
         message.chat.id,
-        "🤖 Qanday mavzuda kulgili video kerak?\n\n"
-        "Masalan:\n"
-        "🐶 it pasport orqali kredit olyabdi 💳"
-        "🐔 Tovuq supermarketda kassir bo‘lib ishlayapti 💵"
-        "🐮 Sigir pasport olish uchun navbatda turibdi 🪪"
+        "🐾 Hayvonlar pasporti\n\n"
+        "Qaysi mavzudagi videoni ko‘rmoqchisiz? 👇",
+        reply_markup=markup
     )
+
+
+@bot.message_handler(func=lambda message: message.text == "🔙 Orqaga")
+def back(message):
+    start(message)
 
 
 bot.infinity_polling()
